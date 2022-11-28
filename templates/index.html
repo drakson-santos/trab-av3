@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        Calculator using HTML Example
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+    <style>
+
+        .dark-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .box {
+            background-color: #3d4543;
+            height: 380px;
+            width: 320px;
+            border-radius: 10px;
+        }
+
+        .display {
+            background-color: #222;
+            width: 290px;
+            position: relative;
+            left: 15px;
+            top: 20px;
+            height: 40px;
+        }
+
+        .display input {
+            position: relative;
+            left: 2px;
+            top: 2px;
+            height: 35px;
+            color: black;
+            background-color: #bccd95;
+            font-size: 21px;
+            text-align: right;
+        }
+
+        .keys {
+            position: relative;
+            top: 25px;
+        }
+
+        .button {
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 17px;
+            cursor: pointer;
+            border-top: 2px solid transparent;
+        }
+
+        .button.gray {
+            color: black;
+            font-color: black;
+            background-color: #6f6f6f;
+            border-bottom: black 2px solid;
+            border-top: 2px #6f6f6f solid;
+        }
+
+        .title:hover {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 10px;
+            margin-top: 30px;
+            padding: 5px 0;
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            font-family: 'Cookie', cursive;
+        }
+
+        .button.pink {
+            color: black;
+            background-color: #ff4561;
+            border-bottom: black 2px solid;
+        }
+
+        .button.black {
+            color: black;
+            background-color: 303030;
+            border-bottom: black 2px solid;
+            border-top: 2px 303030 solid;
+            font-weight: bold;
+        }
+
+        .button.orange {
+            color: black;
+            background-color: FF9933;
+            border-bottom: black 2px solid;
+            border-top: 2px FF9933 solid;
+        }
+
+        .gray:active {
+            border-top: black 2px solid;
+            border-bottom: 2px #6f6f6f solid;
+        }
+
+        .pink:active {
+            border-top: black 2px solid;
+            border-bottom: #ff4561 2px solid;
+        }
+
+        .black:active {
+            border-top: black 2px solid;
+            border-bottom: #303030 2px solid;
+        }
+
+        .orange:active {
+            border-top: black 2px solid;
+            border-bottom: FF9933 2px solid;
+        }
+
+        /* p {
+            line-height: 10px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="dark-container">
+        <div class="box">
+            <div class="display">
+                <input type="text" readonly size="24" id="d">
+            </div>
+            <div class="keys">
+                <p>
+                    <input type="button" class="button black" value="A" onclick='c("A")'>
+                    <input type="button" class="button black" value="B" onclick='c("B")'>
+                    <input type="button" class="button black" value="C" onclick='c("C")'>
+                    <input type="button" class="button black" value="D" onclick='c("D")'>
+                    <input type="button" class="button pink" value="~" onclick='v("~")'> <!-- Negação -->
+                </p>
+                <p>
+                    <input type="button" class="button black" value="E" onclick='c("E")'>
+                    <input type="button" class="button black" value="F" onclick='c("F")'>
+                    <input type="button" class="button black" value="G" onclick='c("G")'>
+                    <input type="button" class="button black" value="H" onclick='c("H")'>
+                    <input type="button" class="button pink" value="^" onclick='v("^")'> <!-- Conjunção -->
+                </p>
+                <p>
+                    <input type="button" class="button black" value="I" onclick='c("I")'>
+                    <input type="button" class="button black" value="J" onclick='c("J")'>
+                    <input type="button" class="button black" value="K" onclick='c("K")'> <!-- Disjunção -->
+                    <input type="button" class="button black" value="L" onclick='c("L")'>
+                    <input type="button" class="button pink" value="v" onclick='v("v")'>
+                </p>
+                <p>
+                    <input type="button" class="button black" value="M" onclick='c("M")'>
+                    <input type="button" class="button black" value="N" onclick='c("N")'> <!-- Condicional -->
+                    <input type="button" class="button black" value="O" onclick='c("O")'>
+                    <input type="button" class="button black" value="P" onclick='c("P")'>
+                    <input type="button" class="button pink" value="→" onclick='v("→")'>
+                </p>
+                <p>
+                    <input type="button" class="button black" value="Q" onclick='c("Q")'> <!-- Bi-condicional -->
+                    <input type="button" class="button black" value="R" onclick='c("R")'>
+                    <input type="button" class="button black" value="S" onclick='c("S")'>
+                    <input type="button" class="button black" value="T" onclick='c("T")'>
+                    <input type="button" class="button pink" value="↔" onclick='v("↔")'> <!-- Bi-condicional -->
+                </p>
+                <p>
+                    <input type="button" class="button black" value="U" onclick='c("U")'>
+                    <input type="button" class="button black" value="V" onclick='c("V")'>
+                    <input type="button" class="button black" value="W" onclick='c("W")'>
+                    <input type="button" class="button black" value="X" onclick='c("X")'>
+                    <input type="button" class="button pink" value="(" onclick='v("(")'>
+                </p>
+                <p>
+                    <input type="button" class="button black" value="Y" onclick='c("Y")'>
+                    <input type="button" class="button black" value="Z" onclick='c("Z")'>
+                    <input type="button" class="button gray" value="⌫" onclick='apagar()'>
+                    <input type="button" class="button gray" value="=" onclick='v("=")'>
+                    <input type="button" class="button pink" value=")" onclick='v(")")'>
+                </p>
+            </div>
+        </div>
+    </div>
+<!--
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+</body>
+<script>
+    const LETRAS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    const OPERADORES_LOGICOS = ["~", "^", "v", "→", "↔"]
+    const LIMITADORES = ["(", ")"]
+
+    function c(val) {
+        let valor_atual = document.getElementById("d").value
+        if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += val;
+    }
+
+    function v(val) {
+        let valor_atual = document.getElementById("d").value
+        if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += val;
+    }
+
+    function apagar() {
+        let expresao = document.getElementById("d").value
+        document.getElementById("d").value = expresao.substr(0, expresao.length - 1);
+    }
+
+    function operecao_logica(caracter) {
+        return OPERADORES_LOGICOS.find(operador => operador === caracter)
+    }
+
+    function eh_uma_preposicao(caracter) {
+        return LETRAS.find(preposicao => preposicao === caracter)
+    }
+
+    function eh_um_limitador(caracter) {
+        return LIMITADORES.find(limitador => limitador === caracter)
+    }
+
+    function operacao_diferente_da_anterior(valor_digitado, valor_anterior) {
+        return valor_anterior !== valor_digitado
+    }
+
+
+    function operecao_permitida(valor_digitado, valor_atual) {
+        let ultimo_caracter = valor_atual.slice(-1)
+
+        if (eh_um_limitador(valor_digitado)) {
+            if (valor_atual === "" && valor_digitado === LIMITADORES[1]) return false
+        }
+
+
+        if (!operacao_diferente_da_anterior(valor_digitado, ultimo_caracter)) return false
+
+        if (operecao_logica(valor_digitado)) {
+            if (valor_atual === "" && valor_digitado != "~") return false
+        } else if (eh_uma_preposicao(valor_digitado)) {
+            if (eh_uma_preposicao(ultimo_caracter)) return false
+        }
+
+        return true
+    }
+
+
+    function e() {
+        window.location.href = 'http://127.0.0.1:5000/?metodo=2'
+        // try {
+        //     c(eval(document.getElementById("d").value))
+        // }
+        // catch (e) {
+        //     c('Error')
+        // }
+    }
+</script>
+
+</html>
