@@ -142,53 +142,53 @@
             </div>
             <div class="keys">
                 <p>
-                    <input type="button" class="button black" value="A" onclick='c("A")'>
-                    <input type="button" class="button black" value="B" onclick='c("B")'>
-                    <input type="button" class="button black" value="C" onclick='c("C")'>
-                    <input type="button" class="button black" value="D" onclick='c("D")'>
-                    <input type="button" class="button pink" value="~" onclick='v("~")'> <!-- Negação -->
+                    <input type="button" class="button black" value="A" onclick='montar_expresao("A")'>
+                    <input type="button" class="button black" value="B" onclick='montar_expresao("B")'>
+                    <input type="button" class="button black" value="C" onclick='montar_expresao("C")'>
+                    <input type="button" class="button black" value="D" onclick='montar_expresao("D")'>
+                    <input type="button" class="button pink" value="~" onclick='montar_expresao("~")'> <!-- Negação -->
                 </p>
                 <p>
-                    <input type="button" class="button black" value="E" onclick='c("E")'>
-                    <input type="button" class="button black" value="F" onclick='c("F")'>
-                    <input type="button" class="button black" value="G" onclick='c("G")'>
-                    <input type="button" class="button black" value="H" onclick='c("H")'>
-                    <input type="button" class="button pink" value="^" onclick='v("^")'> <!-- Conjunção -->
+                    <input type="button" class="button black" value="E" onclick='montar_expresao("E")'>
+                    <input type="button" class="button black" value="F" onclick='montar_expresao("F")'>
+                    <input type="button" class="button black" value="G" onclick='montar_expresao("G")'>
+                    <input type="button" class="button black" value="H" onclick='montar_expresao("H")'>
+                    <input type="button" class="button pink" value="^" onclick='montar_expresao("^")'> <!-- Conjunção -->
                 </p>
                 <p>
-                    <input type="button" class="button black" value="I" onclick='c("I")'>
-                    <input type="button" class="button black" value="J" onclick='c("J")'>
-                    <input type="button" class="button black" value="K" onclick='c("K")'> <!-- Disjunção -->
-                    <input type="button" class="button black" value="L" onclick='c("L")'>
-                    <input type="button" class="button pink" value="v" onclick='v("v")'>
+                    <input type="button" class="button black" value="I" onclick='montar_expresao("I")'>
+                    <input type="button" class="button black" value="J" onclick='montar_expresao("J")'>
+                    <input type="button" class="button black" value="K" onclick='montar_expresao("K")'> <!-- Disjunção -->
+                    <input type="button" class="button black" value="L" onclick='montar_expresao("L")'>
+                    <input type="button" class="button pink" value="v" onclick='montar_expresao("v")'>
                 </p>
                 <p>
-                    <input type="button" class="button black" value="M" onclick='c("M")'>
-                    <input type="button" class="button black" value="N" onclick='c("N")'> <!-- Condicional -->
-                    <input type="button" class="button black" value="O" onclick='c("O")'>
-                    <input type="button" class="button black" value="P" onclick='c("P")'>
-                    <input type="button" class="button pink" value="→" onclick='v("→")'>
+                    <input type="button" class="button black" value="M" onclick='montar_expresao("M")'>
+                    <input type="button" class="button black" value="N" onclick='montar_expresao("N")'> <!-- Condicional -->
+                    <input type="button" class="button black" value="O" onclick='montar_expresao("O")'>
+                    <input type="button" class="button black" value="P" onclick='montar_expresao("P")'>
+                    <input type="button" class="button pink" value="→" onclick='montar_expresao("→")'>
                 </p>
                 <p>
-                    <input type="button" class="button black" value="Q" onclick='c("Q")'> <!-- Bi-condicional -->
-                    <input type="button" class="button black" value="R" onclick='c("R")'>
-                    <input type="button" class="button black" value="S" onclick='c("S")'>
-                    <input type="button" class="button black" value="T" onclick='c("T")'>
-                    <input type="button" class="button pink" value="↔" onclick='v("↔")'> <!-- Bi-condicional -->
+                    <input type="button" class="button black" value="Q" onclick='montar_expresao("Q")'> <!-- Bi-condicional -->
+                    <input type="button" class="button black" value="R" onclick='montar_expresao("R")'>
+                    <input type="button" class="button black" value="S" onclick='montar_expresao("S")'>
+                    <input type="button" class="button black" value="T" onclick='montar_expresao("T")'>
+                    <input type="button" class="button pink" value="↔" onclick='montar_expresao("↔")'> <!-- Bi-condicional -->
                 </p>
                 <p>
-                    <input type="button" class="button black" value="U" onclick='c("U")'>
-                    <input type="button" class="button black" value="V" onclick='c("V")'>
-                    <input type="button" class="button black" value="W" onclick='c("W")'>
-                    <input type="button" class="button black" value="X" onclick='c("X")'>
-                    <input type="button" class="button pink" value="(" onclick='v("(")'>
+                    <input type="button" class="button black" value="U" onclick='montar_expresao("U")'>
+                    <input type="button" class="button black" value="V" onclick='montar_expresao("V")'>
+                    <input type="button" class="button black" value="W" onclick='montar_expresao("W")'>
+                    <input type="button" class="button black" value="X" onclick='montar_expresao("X")'>
+                    <input type="button" class="button pink" value="(" onclick='montar_expresao("(")'>
                 </p>
                 <p>
-                    <input type="button" class="button black" value="Y" onclick='c("Y")'>
-                    <input type="button" class="button black" value="Z" onclick='c("Z")'>
+                    <input type="button" class="button black" value="Y" onclick='montar_expresao("Y")'>
+                    <input type="button" class="button black" value="Z" onclick='montar_expresao("Z")'>
                     <input type="button" class="button gray" value="⌫" onclick='apagar()'>
-                    <input type="button" class="button gray" value="=" onclick='v("=")'>
-                    <input type="button" class="button pink" value=")" onclick='v(")")'>
+                    <input type="button" class="button gray" value="=" onclick='enviar_expressao("=")'>
+                    <input type="button" class="button pink" value=")" onclick='montar_expresao(")")'>
                 </p>
             </div>
         </div>
@@ -231,12 +231,7 @@
     const OPERADORES_LOGICOS = ["~", "^", "v", "→", "↔"]
     const LIMITADORES = ["(", ")"]
 
-    function c(val) {
-        let valor_atual = document.getElementById("d").value
-        if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += val;
-    }
-
-    function v(val) {
+    function montar_expresao(val) {
         let valor_atual = document.getElementById("d").value
         if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += val;
     }
@@ -262,6 +257,22 @@
         return valor_anterior !== valor_digitado
     }
 
+    function esta_balanceado(s) {
+        var open = (arguments.length > 1) ? arguments[1] : '(';
+        var close = (arguments.length > 2) ? arguments[2] : ')';
+        var c = 0;
+        for(var i = 0; i < s.length; i++) {
+            var ch = s.charAt(i);
+            if ( ch == open ) {
+                c++;
+            }
+            else if ( ch == close ) {
+                c--;
+                if ( c < 0 ) return false;
+            }
+        }
+        return c == 0;
+    }
 
     function operecao_permitida(valor_digitado, valor_atual) {
         let ultimo_caracter = valor_atual.slice(-1)
@@ -275,7 +286,10 @@
 
         if (operecao_logica(valor_digitado)) {
             if (valor_atual === "" && valor_digitado != "~") return false
-        } else if (eh_uma_preposicao(valor_digitado)) {
+            if(valor_digitado != "~" && operecao_logica(ultimo_caracter)) return false
+        }
+
+        if (eh_uma_preposicao(valor_digitado)) {
             if (eh_uma_preposicao(ultimo_caracter)) return false
         }
 
@@ -283,14 +297,13 @@
     }
 
 
-    function e() {
-        window.location.href = 'http://127.0.0.1:5000/?metodo=2'
-        // try {
-        //     c(eval(document.getElementById("d").value))
-        // }
-        // catch (e) {
-        //     c('Error')
-        // }
+    function enviar_expressao() {
+        let expressao = document.getElementById("d").value
+        if(esta_balanceado(expressao)) {
+            console.log("expressao: ", expressao)
+        } else {
+            alert("Corrija sua expressao")
+        }
     }
 </script>
 
