@@ -128,9 +128,9 @@
             border-bottom: FF9933 2px solid;
         }
 
-        /* p {
-            line-height: 10px;
-        } */
+        .mt-md {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -138,7 +138,7 @@
     <div class="dark-container">
         <div class="box">
             <div class="display">
-                <input type="text" readonly size="24" id="d">
+                <input type="text" readonly size="24" id="d" value="{{ request.args.get('expressao', '') }}">
             </div>
             <div class="keys">
                 <p>
@@ -193,38 +193,29 @@
             </div>
         </div>
     </div>
-<!--
-    <div>
-        <table class="table table-bordered">
+    {% if expressao %}
+    <div class="mt-md">
+        <table class="table table-bordered container">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    {% for letra in expressao.keys() %}
+                    <th scope="col">{{ letra }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
+                {% for row in tabela.keys() %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    {% for valor in tabela[row] %}
+                    <td>{{ valor }}</td>
+                    {% endfor %}
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
-    </div> -->
+    </div>
+    {% endif %}
+
 </body>
 <script>
     const LETRAS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
@@ -233,7 +224,7 @@
 
     function montar_expresao(val) {
         let valor_atual = document.getElementById("d").value
-        if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += val;
+        if (operecao_permitida(val, valor_atual)) document.getElementById("d").value += " " + val;
     }
 
     function apagar() {
@@ -300,7 +291,7 @@
     function enviar_expressao() {
         let expressao = document.getElementById("d").value
         if(esta_balanceado(expressao)) {
-            console.log("expressao: ", expressao)
+            window.location.href = "http://127.0.0.1:5000/?expressao=" + expressao
         } else {
             alert("Corrija sua expressao")
         }
