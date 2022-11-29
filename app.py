@@ -20,12 +20,16 @@ def montar_tabela(data):
 
 @app.route("/")
 def index():
-    expressao = request.args.get("expressao", None)
+    expressao = request.args.get("expressao", {})
     tabela = None
+    error = None
     if expressao:
-        expressao = app_calc(expressao)
-        tabela = montar_tabela(expressao)
-    return render_template("index.html", tabela=tabela, expressao=expressao)
+        try:
+            expressao = app_calc(expressao)
+            tabela = montar_tabela(expressao)
+        except:
+            error = True
+    return render_template("index.html", tabela=tabela, expressao=expressao, error=error)
 
 
 if __name__ == "__main__":

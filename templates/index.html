@@ -193,7 +193,12 @@
             </div>
         </div>
     </div>
-    {% if expressao %}
+
+    {% if error %}
+    <div>
+        Preposicao invalida
+    </div>
+    {% else %}
     <div class="mt-md">
         <table class="table table-bordered container">
             <thead>
@@ -204,6 +209,7 @@
                 </tr>
             </thead>
             <tbody>
+                {% if tabela %}
                 {% for row in tabela.keys() %}
                 <tr>
                     {% for valor in tabela[row] %}
@@ -211,16 +217,18 @@
                     {% endfor %}
                 </tr>
                 {% endfor %}
+                {% endif %}
             </tbody>
         </table>
     </div>
     {% endif %}
-
 </body>
 <script>
     const LETRAS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     const OPERADORES_LOGICOS = ["~", "^", "v", "→", "↔"]
     const LIMITADORES = ["(", ")"]
+
+    const params = new URLSearchParams(window.location.search)
 
     function montar_expresao(val) {
         let valor_atual = document.getElementById("d").value
@@ -270,10 +278,7 @@
 
         if (eh_um_limitador(valor_digitado)) {
             if (valor_atual === "" && valor_digitado === LIMITADORES[1]) return false
-        }
-
-
-        if (!operacao_diferente_da_anterior(valor_digitado, ultimo_caracter)) return false
+        } else if (!operacao_diferente_da_anterior(valor_digitado, ultimo_caracter)) return false
 
         if (operecao_logica(valor_digitado)) {
             if (valor_atual === "" && valor_digitado != "~") return false
